@@ -1,0 +1,19 @@
+import java.util.Date;
+
+public class Withdraw {
+    private double amount;
+    private Date date;
+    private String account;
+
+    Withdraw(double amount, Date date, String account){
+        this.amount = amount;
+        this.date = date;
+        this.account = account;
+    }
+
+    public String toString(){
+        //your code here
+        return "Withdraw: \n" + "Withdraw of: " + this.amount + " Date: " + this.date + " into account: " + this.account + "\n" + "Withdraw of: " + this.amount + " Date: " + this.date + " into account: " + this.account;
+    }
+
+}
