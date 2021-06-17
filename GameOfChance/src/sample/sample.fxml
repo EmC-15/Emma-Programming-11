@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <HBox alignment="CENTER" prefHeight="76.0" prefWidth="600.0" spacing="15.0">
+         <children>
+            <Label text="High or Low Game" textFill="#f50000">
+               <font>
+                  <Font name="System Bold" size="37.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="154.0" prefWidth="600.0" spacing="10.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="148.0" prefWidth="200.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="233.0" spacing="15.0">
+                     <children>
+                        <Label text="Given Number:" />
+                        <Label fx:id="lblGivenNum" prefHeight="17.0" prefWidth="89.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Label fx:id="gameResult" alignment="CENTER" prefHeight="30.0" prefWidth="135.0">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <VBox alignment="CENTER" prefHeight="148.0" prefWidth="200.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="184.0" spacing="15.0">
+                     <children>
+                        <Label text="Unknown Number:" />
+                        <Label fx:id="lblUnknownNum" prefHeight="17.0" prefWidth="54.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="142.0" prefWidth="600.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="128.0" prefWidth="150.0">
+                     <children>
+                        <Button fx:id="btnHigher" mnemonicParsing="false" onMouseClicked="#selectHigher" prefHeight="62.0" prefWidth="100.0" text="Higher">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Button fx:id="btnNewGame" mnemonicParsing="false" onMouseClicked="#createNewGame" text="New Game" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="128.0" prefWidth="150.0">
+                     <children>
+                        <Button fx:id="btnLower" mnemonicParsing="false" onMouseClicked="#selectLower" prefHeight="62.0" prefWidth="100.0" text="Lower">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="TOP_CENTER" prefHeight="81.0" prefWidth="600.0">
+               <children>
+                  <Label text="Will the Unknown Number be Higher or Lower than the Given Number?" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</VBox>
