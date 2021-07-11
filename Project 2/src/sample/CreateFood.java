@@ -1,9 +1,5 @@
 package sample;
 
-import javafx.collections.ObservableList;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -14,7 +10,7 @@ public class CreateFood {
     private static int quantity;
     private static FileReader fr;
     private static BufferedReader br;
-    public static ArrayList<Food> foods = new ArrayList<>();
+    private static ArrayList<Food> foods = new ArrayList<>();
 
 
 
@@ -53,16 +49,13 @@ public class CreateFood {
             }
         }
 
-
         Food temp = new Food(name, quantity);
         foods.add(temp);
-
-
         Food.removeDuplicates(foods);
-
-        //Food.deleteDuplicates(temp, other);
 
     }
 
-
+    public static ArrayList<Food> getFoods() {
+        return foods;
+    }
 }

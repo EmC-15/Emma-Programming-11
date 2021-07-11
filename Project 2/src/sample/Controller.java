@@ -18,14 +18,18 @@ public class Controller {
     public Button btnDelete;
 
 
-
+    //when button is pressed, a new object it added to the list and is written to the food.txt file
     public void saveFood(ActionEvent actionEvent) throws IOException {
 
         listFood.getItems().clear();
         String name = txtGetName.getText();
         int quant = Integer.parseInt(txtGetQuantity.getText());
         Food temp = new Food(name, quant);
-        listFood.getItems().add(temp);
+
+        if(txtGetName.getText().length() > 0 && txtGetQuantity.getText().toString().length() > 0){
+            listFood.getItems().add(temp);
+        }
+
         txtGetName.clear();
         txtGetQuantity.clear();
 
@@ -35,29 +39,25 @@ public class Controller {
         for(Food f : myList){
             f.writeToFile("Food.txt");
         }
-
         listFood.getItems().clear();
+
         btnLoad.setDisable(false);
     }
 
 
-    //NEED TO MAKE IT SO THAT WHEN LOAD BTN IS PRESSED, NO DUPLICATE OBJECTS ARE LISTED
-    //after deleting items, they still appear even when they are deleted from the text file, they appear when pressed load
+
+    //takes the information from the food.txt file and then loads the list into the listView
     public void loadInventory(ActionEvent actionEvent) throws IOException {
 
         listFood.getItems().clear();
-        ArrayList<Food> foods = CreateFood.createAllFoods("Food.txt");
+        CreateFood.getFoods().clear();
 
+        ArrayList<Food> foods = CreateFood.createAllFoods("Food.txt");
 
 
         for (Food f : foods){
             listFood.getItems().add(f);
         }
-
-        //if(!listFood.contains(f)){}
-
-        //ObservableList<Food> myList = listFood.getItems();
-        //Food.removeDuplicates((ArrayList<Food>) myList);
 
 
         btnLoad.setDisable(true);
@@ -66,29 +66,25 @@ public class Controller {
     }
 
 
-    //IT WORKS NOW!!!!
-    //deletes from the file, but load button pressed, it still appears in the list
+    //when an object is selected in the listView and the delete button is pressed, the list is cleared, the item gets removed from the listView
+    //and then the food.txt file is cleared, then gets rewritten without the removed item.
     public void deleteFood(ActionEvent actionEvent) throws IOException {
         Food temp;
         temp = (Food) listFood.getSelectionModel().getSelectedItem();
 
-
         ObservableList<Food> myList = listFood.getItems();
-
-        listFood.getItems().remove(temp);
-        CreateFood.foods.remove(temp);
 
         for(Food f : myList){
             f.removeFromFile("Food.txt");
         }
 
+        listFood.getItems().remove(temp);
+        CreateFood.getFoods().remove(temp);
 
         for(Food f : myList){
             f.writeToFile("Food.txt");
         }
 
-
     }
-
 
 }

@@ -1,0 +1,1 @@
+Apple,4;Lettuce,5;Spinach,1;Oranges,7;Strawberries,2;Broccoli,2;Apple Juice,4;

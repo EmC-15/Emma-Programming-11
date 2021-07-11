@@ -1,30 +1,29 @@
 package sample;
 
-import javafx.collections.ObservableList;
-import javafx.scene.control.ListView;
-
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapters;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class Food {
-
     public String name;
     private int quantity;
 
+    //constructor:
     public Food(String name, int quantity){
         this.name = name;
         this.quantity = quantity;
     }
 
 
+    //returns the item in the list as a string
     public String toString(){
         return "Food Name: " + name + "\t\tQuantity: " + quantity;
     }
 
 
+
+    //writes the added food to the file
     public void writeToFile(String fileName) throws IOException {
 
         FileWriter fw = new FileWriter(fileName, true);
@@ -37,6 +36,7 @@ public class Food {
     }
 
 
+    //clears the file (so that the new list can be written)
     public void removeFromFile(String fileName) throws IOException {
         FileWriter fw = new FileWriter(fileName);
         BufferedWriter bw = new BufferedWriter(fw);
@@ -46,27 +46,6 @@ public class Food {
 
 
     }
-
-
-    public boolean compareFood(Food f){
-        if(this.name.equals(f.name)){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-
-/*
-    public static void deleteDuplicates(Food f) throws IOException {
-
-        if(f.equals(this.name)){
-            f.removeFromFile("Food.txt");
-
-        }
-
-    }
-*/
 
 
     // Function to remove duplicates from an ArrayList
@@ -90,5 +69,5 @@ public class Food {
         return newList;
     }
 
-
 }
+
